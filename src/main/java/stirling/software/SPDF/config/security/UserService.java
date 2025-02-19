@@ -378,7 +378,7 @@ public class UserService implements UserServiceInterface {
                 } else if (principal instanceof OAuth2User oAuth2User) {
                     usernameP = oAuth2User.getName();
                 } else if (principal instanceof CustomSaml2AuthenticatedPrincipal saml2User) {
-                    usernameP = saml2User.getName();
+                    usernameP = saml2User.name();
                 } else if (principal instanceof String) {
                     usernameP = (String) principal;
                 }
@@ -399,7 +399,7 @@ public class UserService implements UserServiceInterface {
                     .getAttribute(
                             applicationProperties.getSecurity().getOauth2().getUseAsUsername());
         } else if (principal instanceof CustomSaml2AuthenticatedPrincipal) {
-            return ((CustomSaml2AuthenticatedPrincipal) principal).getName();
+            return ((CustomSaml2AuthenticatedPrincipal) principal).name();
         } else {
             return principal.toString();
         }

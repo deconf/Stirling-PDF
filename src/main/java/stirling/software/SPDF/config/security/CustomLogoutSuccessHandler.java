@@ -78,7 +78,7 @@ public class CustomLogoutSuccessHandler extends SimpleUrlLogoutSuccessHandler {
         CustomSaml2AuthenticatedPrincipal principal =
                 (CustomSaml2AuthenticatedPrincipal) samlAuthentication.getPrincipal();
 
-        String nameIdValue = principal.getName();
+        String nameIdValue = principal.name();
 
         try {
             // Read certificate from the resource
